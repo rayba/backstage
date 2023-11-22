@@ -4,14 +4,24 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: examples
+  links:
+  - url: https://www.google.com
+    title: Example Google
+    icon: dashboard
 spec:
   owner: guests
+
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: example-website
+  links:
+    - url: https://dashboard.example.com
+      title: My Dashboard
+      icon: dashboard
+
 spec:
   type: website
   lifecycle: experimental
@@ -26,7 +36,7 @@ metadata:
   name: example-grpc-api
 spec:
   type: grpc
-  lifecycle: experimental
+  lifecycle: normal
   owner: guests
   system: examples
   definition: |

@@ -5,6 +5,8 @@ app:
 organization:
   name: My Company
 
+
+
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
   # See https://backstage.io/docs/auth/service-to-service-auth for
@@ -69,6 +71,9 @@ auth:
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
+lighthouse:
+  baseUrl: https://www.nownz.co.nz/
+
 catalog:
   import:
     entityFilename: catalog-info.yaml
@@ -101,3 +106,16 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
+kubernetes:
+  serviceLocatorMethod:
+    type: multiTenant
+  clusterLocatorMethods:
+    - type: config
+      clusters:
+        - url: https://kubernetes.docker.internal:6443
+          name: docker-desktop
+          authProvider: serviceAccount
+          skipTLSVerify: true
+          skipMetricsLookup: true
+          serviceAccountToken: eyJhbGciOiJSUzI1NiIsImtpZCI6IlBOTlZ3cDVlVTMzX0dXcFN2UkJfSWk4eUZ5Z0pYWGhBT2VIV3ZpOUVQS2sifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImJhY2tzdGFnZS1zYS10b2tlbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJiYWNrc3RhZ2Utc2EiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI2ZWMyYmEzNC1kMzgyLTRjOGMtODJjMS03ZDU2NWVkZjgyZDUiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6ZGVmYXVsdDpiYWNrc3RhZ2Utc2EifQ.a9EONow9S7qdHhKwBkYA3C3Ecos50LoEw-Ni4_L34FZBpbZpX_meekK6kEOcL3i9q3ySTwaHhdzM2LyK7ujacHB3Non79t8gQEyfGQFm9jbOhV9dDxAW0cwr26Vi4PYIfYsEs5FsRLfnqiyEXg-vtO6nTM0193YlvehsuwRBcSzTTgmDDrh3hk1UeUe572bOQUxh-tKZ5hydbbWAVWNqGnEwQSkCZj2SDhgbL9E6aTqa2j2vLXwoIRHcqgWATiSfTBv-55aXAtZhAhHncmCMXUfRIJKPejEAe0SR3Mn4JJre7ggmte1BWjLyVqU2pLjTugizXJVER8A9EL7UVpW18A
